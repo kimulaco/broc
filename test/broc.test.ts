@@ -1,7 +1,13 @@
-import { name } from '../src/broc'
+import broc from '../src/broc'
 
-describe('name', (): void => {
-    test('name is string', (): void => {
-        expect(typeof name === 'string').toBeTruthy()
-    })
+describe('parse', (): void => {
+  let blog: any
+
+  beforeAll(async () => {
+    blog = await broc.parse('./test/resources')
+  })
+
+  test('posts length', () => {
+    expect(blog.posts.length).toBe(2)
+  })
 })
