@@ -19,14 +19,6 @@
     "test": "jest",
     "lint": "eslint src/**/*.ts --ignore-path .gitignore"
   },
-  "lint-staged": {
-    "*.{js,ts}": "npm run lint"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "dependencies": {
     "glob": "^7.1.4",
     "lodash": "^4.17.15",
@@ -45,9 +37,7 @@
     "eslint-config-prettier": "^6.3.0",
     "eslint-loader": "^3.0.0",
     "eslint-plugin-prettier": "^3.1.0",
-    "husky": "^3.0.5",
     "jest": "^24.9.0",
-    "lint-staged": "^9.2.5",
     "prettier": "^1.18.2",
     "ts-jest": "^24.1.0",
     "ts-loader": "^6.1.0",
