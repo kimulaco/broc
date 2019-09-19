@@ -3,23 +3,23 @@ module.exports = {
     'eslint:recommended',
     'plugin:prettier/recommended'
   ],
-  plugins: [
-    '@typescript-eslint'
-  ],
   env: {
     node: true,
     es6: true,
     jest: true
   },
-  parser: '@typescript-eslint/parser',
   parserOptions: {
     sourceType: 'module',
-    project: './tsconfig.json'
+    ecmaVersion: 2017
   },
   rules: {},
   overrides: [
     {
       files: ['*.ts'],
+      plugins: [
+        '@typescript-eslint'
+      ],
+      parser: '@typescript-eslint/parser',
       extends: [
         'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',

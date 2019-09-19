@@ -1,4 +1,5 @@
 import { parse } from '../src/broc'
+import { hasOwnProperties } from './utils/utils'
 
 describe('parse', (): void => {
   let blog: any
@@ -13,16 +14,16 @@ describe('parse', (): void => {
 
   test('has meta', () => {
     const post = blog.posts[0]
-    expect(
-      post.meta.hasOwnProperty('id') &&
-      post.meta.hasOwnProperty('title') &&
-      post.meta.hasOwnProperty('description') &&
-      post.meta.hasOwnProperty('category') &&
-      post.meta.hasOwnProperty('tags') &&
-      post.meta.hasOwnProperty('status') &&
-      post.meta.hasOwnProperty('created_at') &&
-      post.meta.hasOwnProperty('updated_at')
-    ).toBeTruthy()
+    expect(hasOwnProperties(post.meta, [
+      'id',
+      'title',
+      'description',
+      'category',
+      'tags',
+      'status',
+      'created_at',
+      'updated_at'
+    ])).toBeTruthy()
   })
 
   test('has html body', () => {
