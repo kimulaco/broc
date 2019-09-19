@@ -16,7 +16,7 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack -w",
-    "test": "jest",
+    "test": "jest --coverage",
     "lint": "eslint src/**/*.ts --ignore-path .gitignore"
   },
   "dependencies": {

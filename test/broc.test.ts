@@ -1,10 +1,10 @@
-import broc from '../src/broc'
+import { parse } from '../src/broc'
 
 describe('parse', (): void => {
   let blog: any
 
   beforeAll(async () => {
-    blog = await broc.parse('./test/resources')
+    blog = await parse('./test/resources')
   })
 
   test('posts length', () => {
