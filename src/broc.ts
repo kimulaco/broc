@@ -1,6 +1,6 @@
 import path from 'path'
 import fs from 'fs'
-import glob from 'glob'
+import glob from 'fast-glob'
 import MarkdownIt from 'markdown-it'
 import removeMd from 'remove-markdown'
 
@@ -51,7 +51,7 @@ class Broc {
 
   async parse(dir: string, option: Option = {}) {
     this.option = Object.assign(this.option, option)
-    const posts = glob.sync(path.join(dir, '**/*.md'))
+    const posts = await glob(path.join(dir, '**/*.md'))
     const blog: any = {
       posts: [],
       tags: []
