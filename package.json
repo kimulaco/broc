@@ -13,6 +13,7 @@
     "url": "https://github.com/kimulaco/kimulaco.com.git"
   },
   "main": "dist/broc.js",
+  "types": "types/broc.d.ts",
   "scripts": {
     "build": "webpack",
     "dev": "webpack -w",
