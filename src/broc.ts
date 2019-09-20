@@ -12,6 +12,9 @@ type MarkdownItOption = any
 type Tag = string
 
 interface Option {
+  tags: string
+  createdAt: string
+  updatedAt: string
   markdownIt?: MarkdownItOption
 }
 
@@ -32,6 +35,9 @@ interface Blog {
 }
 
 const defaultOption: Option = {
+  tags: 'tags',
+  createdAt: 'created_at',
+  updatedAt: 'updated_at',
   markdownIt: {
     html: true
   }
@@ -67,19 +73,40 @@ const importPost = async (
   }
 }
 
+const sortPosts  = (
+  posts: Post[],
+  updatedAt: string,
+  createdAt: string
+): Post[] => {
+  return posts.sort((a: Post, b: Post) => {
+    const aDate: string = a.meta[updatedAt] || a.meta[createdAt]
+    const bDate: string = b.meta[updatedAt] || b.meta[createdAt]
+    return aDate < bDate ? 1 : -1
+  })
+}
+
+const sortTags = (tags: Tag[]): Tag[] => {
+  const uniqueTags = Array.from(new Set(tags))
+  return uniqueTags.sort((a: string, b: string) => {
+    return a < b ? 1 : -1
+  })
+}
+
 export const parse = async (dir: string, option?: Option): Promise<Blog> => {
   option = Object.assign(defaultOption, option || {})
-  const posts = await glob(path.join(dir, '**/*.md'))
-  const blog: Blog = {
-    posts: [],
-    tags: []
-  }
+  const postFiles = await glob(path.join(dir, '**/*.md'))
+  let posts: Post[] = []
+  let tags: Tag[] = []
   let postPath: string
 
-  for (postPath of posts) {
+  for (postPath of postFiles) {
     const post = await importPost(postPath, option.markdownIt)
-    blog.posts.push(post)
+    posts.push(post)
+    tags = tags.concat(post.meta[option.tags])
   }
 
-  return blog
+  return {
+    posts: sortPosts(posts, option.updatedAt, option.createdAt),
+    tags: sortTags(tags)
+  }
 }

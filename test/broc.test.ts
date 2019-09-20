@@ -6,6 +6,7 @@ describe('parse', (): void => {
 
   beforeAll(async () => {
     blog = await parse('./test/resources')
+    console.log(JSON.stringify(blog, null, '  '))
   })
 
   test('posts length', () => {
@@ -42,6 +43,6 @@ describe('parse', (): void => {
   })
 
   test('tags length', () => {
-    expect(blog.tags.length).toBe(0)
+    expect(blog.tags.length).toBe(5)
   })
 })
