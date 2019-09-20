@@ -1,8 +1,8 @@
 import path from 'path'
 import fs from 'fs'
 import glob from 'fast-glob'
-import { parse } from  './lib/parser'
-import { sortPosts, sortTags } from  './lib/sorter'
+import { parse } from './lib/parser'
+import { sortPosts, sortTags } from './lib/sorter'
 import { Option, Blog, Posts, Post, Tags } from './types'
 
 const defaultOption: Option = {
@@ -14,10 +14,7 @@ const defaultOption: Option = {
   }
 }
 
-export const generate = async (
-  dir: string,
-  option?: Option
-): Promise<Blog> => {
+export const generate = async (dir: string, option?: Option): Promise<Blog> => {
   option = Object.assign(defaultOption, option || {})
   const postFiles: string[] = await glob(path.join(dir, '**/*.md'))
   const posts: Posts = []
