@@ -1,11 +1,11 @@
-import { parse } from '../src/broc'
+import { generate } from '../src/broc'
 import { hasOwnProperties } from './utils/utils'
 
-describe('parse', (): void => {
+describe('generate', (): void => {
   let blog: any
 
   beforeAll(async () => {
-    blog = await parse('./test/resources')
+    blog = await generate('./test/resources')
     console.log(JSON.stringify(blog, null, '  '))
   })
 
@@ -29,17 +29,17 @@ describe('parse', (): void => {
 
   test('has html body', () => {
     const post = blog.posts[0]
-    expect(post.body.html).toBe('<h1>test-01</h1>\n')
+    expect(post.body.html).toBe('<h1>test-02</h1>\n')
   })
 
   test('has md body', () => {
     const post = blog.posts[0]
-    expect(post.body.md).toBe('\n# test-01')
+    expect(post.body.md).toBe('\n# test-02')
   })
 
   test('has text body', () => {
     const post = blog.posts[0]
-    expect(post.body.text).toBe('\ntest-01')
+    expect(post.body.text).toBe('\ntest-02')
   })
 
   test('tags length', () => {
