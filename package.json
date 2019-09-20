@@ -22,7 +22,6 @@
   },
   "dependencies": {
     "fast-glob": "^3.0.4",
-    "lodash": "^4.17.15",
     "markdown-it": "^10.0.0",
     "markdown-it-meta": "0.0.1",
     "remove-markdown": "^0.3.0"
