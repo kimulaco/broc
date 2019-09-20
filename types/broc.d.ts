@@ -1,6 +1,9 @@
 declare type MarkdownItOption = any;
 declare type Tag = string;
 interface Option {
+    tags: string;
+    createdAt: string;
+    updatedAt: string;
     markdownIt?: MarkdownItOption;
 }
 interface Post {
@@ -18,5 +21,4 @@ interface Blog {
     tags: Tag[];
 }
 export declare const parse: (dir: string, option?: Option | undefined) => Promise<Blog>;
-export declare const hoge: () => Date;
 export {};

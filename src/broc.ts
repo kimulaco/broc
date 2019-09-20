@@ -73,7 +73,7 @@ const importPost = async (
   }
 }
 
-const sortPosts  = (
+const sortPosts = (
   posts: Post[],
   updatedAt: string,
   createdAt: string
@@ -95,14 +95,14 @@ const sortTags = (tags: Tag[]): Tag[] => {
 export const parse = async (dir: string, option?: Option): Promise<Blog> => {
   option = Object.assign(defaultOption, option || {})
   const postFiles = await glob(path.join(dir, '**/*.md'))
-  let posts: Post[] = []
-  let tags: Tag[] = []
+  const posts: Post[] = []
+  const tags: Tag[] = []
   let postPath: string
 
   for (postPath of postFiles) {
     const post = await importPost(postPath, option.markdownIt)
     posts.push(post)
-    tags = tags.concat(post.meta[option.tags])
+    tags.push(...post.meta[option.tags])
   }
 
   return {
