@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "target": "es5",
+    "module": "commonjs",
+    "declaration": true,
+    "declarationDir": "types",
+    "sourceMap": true,
+    "removeComments": true,
+    "esModuleInterop": true
+  },
+  "exclude": [
+    "node_modules",
+    "test"
+  ]
+}
