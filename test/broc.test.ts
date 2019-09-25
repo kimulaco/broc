@@ -43,6 +43,6 @@ describe('generate', (): void => {
   })
 
   test('tags length', () => {
-    expect(blog.tags.length).toBe(5)
+    expect(blog.tags.length).toBe(6)
   })
 })
