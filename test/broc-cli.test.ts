@@ -1,4 +1,5 @@
-import { generate } from '../src/broc'
+import fs from 'fs'
+import { generate } from '../src/broc-cli'
 import { Blog, Post, Tags } from '../src/types'
 import { hasOwnProperties } from './utils/utils'
 
@@ -6,7 +7,8 @@ describe('generate', (): void => {
   let blog: Blog
 
   beforeAll(async () => {
-    blog = await generate('./test/resources')
+    await generate('./test/resources', './test/cli/blog.json')
+    blog = JSON.parse(fs.readFileSync('./test/cli/blog.json').toString())
   })
 
   test('posts length', () => {
