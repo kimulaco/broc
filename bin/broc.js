@@ -1,16 +1,9 @@
 #!/usr/bin/env node
 
-const fs = require('fs')
 const cac = require('cac')
-const chalk = require('chalk')
 const cli = cac()
-const broc = require('../dist/broc')
+const brocCli = require('../dist/broc-cli')
 const pkg = require('../package.json')
-
-const build = async (inputDir, outputFile) => {
-  const blog = await broc.generate(inputDir)
-  fs.writeFileSync(outputFile, JSON.stringify(blog, null, '  '))
-}
 
 cli
   .command('[dir]', 'Build posts')
@@ -18,9 +11,7 @@ cli
     default: './posts.json'
   })
   .action(async (dir, option) => {
-    await build(dir, option.output)
-    console.log(chalk.green('\nComplated broc build.\n'))
-    console.log(`${dir} > ${option.output}\n`)
+    await brocCli.generate(dir, option.output)
   })
 
 cli.help()

@@ -1,7 +1,7 @@
 ---
 id: test-01
 title: test-01
-description: test-01 description .
+description: test-01 description.
 category: code
 tags:
     - HTML

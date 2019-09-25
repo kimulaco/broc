@@ -1,15 +1,30 @@
 const path = require('path')
 
-module.exports = {
-  mode: 'production',
-  target: 'node',
-  entry: './src/broc.ts',
-  output: {
-    library: 'broc',
-    libraryTarget: 'commonjs2',
-    filename: 'broc.js',
-    path: path.join(__dirname, 'dist')
+const entryies = [
+  {
+    target: 'node',
+    entry: './src/broc.ts',
+    output: {
+      library: 'broc',
+      libraryTarget: 'commonjs2',
+      filename: 'broc.js',
+      path: path.join(__dirname, 'dist')
+    }
   },
+  {
+    target: 'node',
+    entry: './src/broc-cli.ts',
+    output: {
+      library: 'broc-cli',
+      libraryTarget: 'commonjs2',
+      filename: 'broc-cli.js',
+      path: path.join(__dirname, 'dist')
+    }
+  }
+]
+
+const commonConfig = {
+  mode: 'production',
   module: {
     rules: [
       {
@@ -20,6 +35,10 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.ts', '.js']
+    extensions: ['.ts', '.js', '.node']
   }
 }
+
+module.exports = entryies.map((config) => {
+  return Object.assign(commonConfig, config)
+})
