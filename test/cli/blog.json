@@ -30,6 +30,7 @@
         "tags": [
           "HTML",
           "CSS",
+          "Sass",
           "JavaScript"
         ],
         "status": "publish",
@@ -44,6 +45,7 @@
     }
   ],
   "tags": [
+    "Sass",
     "SVG",
     "JavaScript",
     "HTML",

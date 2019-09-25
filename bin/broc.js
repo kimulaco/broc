@@ -10,8 +10,13 @@ cli
   .option('-o, --output <output>', 'Output file path.', {
     default: './posts.json'
   })
+  .option('-w, --watch', 'Watch mode')
   .action(async (dir, option) => {
-    await brocCli.generate(dir, option.output)
+    if (option.watch) {
+      brocCli.watch(dir, option.output)
+    } else {
+      brocCli.generate(dir, option.output)
+    }
   })
 
 cli.help()
