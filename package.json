@@ -20,7 +20,7 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack -w",
-    "test": "jest --coverage",
+    "test": "jest --verbose --silent --coverage",
     "lint": "eslint src/**/*.ts test/**/*.ts"
   },
   "dependencies": {
