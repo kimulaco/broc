@@ -5,7 +5,21 @@
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 [![CI Status](https://circleci.com/gh/kimulaco/broc.svg?style=svg)](https://circleci.com/gh/kimulaco/broc)
 
+The library to help you create a blog with Markdown.
+
 ## Use
+
+### CLI
+
+```shell
+# generate
+npx broc ./resources -o dist
+
+# watch
+npx broc ./resources -o dist -w
+```
+
+### API
 
 ```js
 import { generate } from './broc'
