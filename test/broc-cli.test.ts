@@ -9,7 +9,7 @@ describe('generate', (): void => {
   beforeAll(async () => {
     await generate('./test/resources', './test/cli/blog.json')
     blog = JSON.parse(fs.readFileSync('./test/cli/blog.json').toString())
-  })
+  }, 3000)
 
   test('posts length', () => {
     expect(blog.posts.length).toBe(2)
@@ -56,7 +56,7 @@ describe('watch', (): void => {
   beforeAll(async () => {
     await watch('./test/resources', './test/cli/blog.json')
     blog = JSON.parse(fs.readFileSync('./test/cli/blog.json').toString())
-  })
+  }, 3000)
 
   test('posts length', () => {
     expect(blog.posts.length).toBe(2)
