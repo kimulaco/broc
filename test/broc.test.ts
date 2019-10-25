@@ -5,9 +5,8 @@ import { hasOwnProperties } from './utils/utils'
 describe('generate', (): void => {
   let blog: Blog
 
-  beforeAll(async (done) => {
+  beforeAll(async () => {
     blog = await generate('./test/resources')
-    done()
   })
 
   test('posts length', () => {

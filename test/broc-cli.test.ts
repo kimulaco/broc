@@ -6,10 +6,9 @@ import { hasOwnProperties } from './utils/utils'
 describe('generate', (): void => {
   let blog: Blog
 
-  beforeAll(async (done) => {
+  beforeAll(async () => {
     await generate('./test/resources', './test/cli/blog.json')
     blog = JSON.parse(fs.readFileSync('./test/cli/blog.json').toString())
-    done()
   })
 
   test('posts length', () => {
@@ -54,10 +53,9 @@ describe('generate', (): void => {
 describe('watch', (): void => {
   let blog: Blog
 
-  beforeAll(async (done) => {
+  beforeAll(async () => {
     await watch('./test/resources', './test/cli/blog.json')
     blog = JSON.parse(fs.readFileSync('./test/cli/blog.json').toString())
-    done()
   })
 
   test('posts length', () => {
