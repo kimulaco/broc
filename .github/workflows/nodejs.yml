@@ -1,0 +1,24 @@
+name: Node CI
+on: [push]
+jobs:
+  test:
+    name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: ['8', '10', '12']
+        os: [ubuntu-latest, macOS-latest]
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - uses: borales/actions-yarn@v2.0.0
+      with:
+        cmd: install
+    - uses: borales/actions-yarn@v2.0.0
+      with:
+        cmd: test
+    - name: coverage
+      run: cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js | rm -rf ./coverage
