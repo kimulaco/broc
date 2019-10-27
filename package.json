@@ -1,6 +1,6 @@
 {
   "name": "broc",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
   "keywords": [
     "markdown",
@@ -26,29 +26,29 @@
   "dependencies": {
     "cac": "^6.5.3",
     "chalk": "^2.4.2",
-    "fast-glob": "^3.0.4",
+    "fast-glob": "^3.1.0",
     "markdown-it": "^10.0.0",
     "markdown-it-meta": "0.0.1",
     "remove-markdown": "^0.3.0"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.18",
-    "@types/markdown-it": "^0.0.8",
-    "@types/node": "^12.7.5",
+    "@types/jest": "^24.0.20",
+    "@types/markdown-it": "^0.0.9",
+    "@types/node": "^12.11.7",
     "@types/remove-markdown": "^0.1.1",
-    "@typescript-eslint/eslint-plugin": "^2.3.0",
-    "@typescript-eslint/parser": "^2.3.0",
-    "coveralls": "^3.0.6",
-    "eslint": "^6.4.0",
-    "eslint-config-prettier": "^6.3.0",
-    "eslint-loader": "^3.0.0",
-    "eslint-plugin-prettier": "^3.1.0",
+    "@typescript-eslint/eslint-plugin": "^2.5.0",
+    "@typescript-eslint/parser": "^2.5.0",
+    "coveralls": "^3.0.7",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-prettier": "^3.1.1",
     "jest": "^24.9.0",
     "prettier": "^1.18.2",
     "ts-jest": "^24.1.0",
-    "ts-loader": "^6.1.0",
-    "typescript": "^3.6.3",
-    "webpack": "^4.40.2",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.6.4",
+    "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9"
   }
 }

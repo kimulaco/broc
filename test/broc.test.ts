@@ -7,7 +7,7 @@ describe('generate', (): void => {
 
   beforeAll(async () => {
     blog = await generate('./test/resources')
-  })
+  }, 3000)
 
   test('posts length', () => {
     expect(blog.posts.length).toBe(2)
