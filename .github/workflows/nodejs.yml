@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         node-version: ['8', '10', '12']
-        os: [ubuntu-latest, macOS-latest, windows-latest]
+        os: [ubuntu-latest, macOS-latest]
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
@@ -55,7 +55,7 @@ jobs:
     strategy:
       matrix:
         node-version: ['8', '10', '12']
-        os: [ubuntu-latest, macOS-latest, windows-latest]
+        os: [ubuntu-latest, macOS-latest]
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
