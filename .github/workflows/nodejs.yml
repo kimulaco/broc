@@ -32,11 +32,11 @@ jobs:
       run: cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js | rm -rf ./coverage
 
   lint:
-    name: Build on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
+    name: Lint on Node.js ${{ matrix.node-version }} and ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [12']
+        node-version: ['12']
         os: [ubuntu-latest]
     steps:
     - uses: actions/checkout@v1
